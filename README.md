@@ -50,6 +50,12 @@ You can also read about how to [Read and Write Data on the Web with a Realtime F
 
 # How to run
 
+Install all the dependencies:
+
+```sh
+npm i
+```
+
 Run the following commands inside your app directory:
 
 ```sh
@@ -57,6 +63,8 @@ npm run dev
 ```
 
 Starts the Next app in a development build.
+
+To build and run a production build of the app, you need to run:
 
 ```sh
 npm run build
@@ -68,7 +76,6 @@ Followed by:
 npm run start
 ```
 
-To build and run a production build of the app.
 
 ## Storybook
 
