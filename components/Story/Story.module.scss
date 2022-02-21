@@ -1,0 +1,136 @@
+@import "../../styles/breakpoints.scss";
+@import "../../styles/colors.scss";
+
+.container {
+  background-color: white;
+  border-bottom: 1px solid $GRAY-60;
+  display: flex;
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-items: space-between;
+    width: 100%;
+
+    @media (min-width: $screen-xs-min) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  .text {
+    padding: 0 15px 15px 15px;
+    flex: 1;
+
+    @media (min-width: $screen-xs-min) {
+      padding: 0 30px 15px 0px;
+    }
+  }
+
+  .image {
+    position: relative;
+    display: flex;
+    align-self: flex-start;
+    border-radius: 4px;
+    margin-top: 15px;
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+
+    @media (min-width: $screen-xs-min) {
+      border-radius: 4px;
+      margin: 15px;
+    }
+  }
+
+  .title {
+    display: flex;
+    align-items: baseline;
+
+    h2 {
+      font-size: 14px;
+      font-weight: 500;
+      margin: 15px 0 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @media (min-width: $screen-xs-min) {
+        font-size: 17px;
+      }
+
+      a {
+        color: $GRAY-10;
+      }
+    }
+
+    .domain {
+      font-size: 10px;
+      font-weight: 400;
+      color: $GRAY-15;
+      margin-left: 5px;
+      word-break: break-all; // Quick, bad fix for crammed design
+
+      @media (min-width: $screen-xs-min) {
+        word-break: normal;
+      }
+    }
+  }
+
+  .score {
+    background-color: $GRAY-90;
+    font-weight: 600;
+    font-size: 14px;
+    color: $GRAY-10;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 16px 10px;
+    width: 40px;
+    align-items: center;
+
+    @media (min-width: $screen-xs-min) {
+      width: 60px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        svg {
+          stroke: $PRIMARY-COLOR;
+        }
+      }
+    }
+
+    &.upvoted {
+      color: $PRIMARY-COLOR;
+
+      svg {
+        fill-opacity: 1;
+        stroke: $PRIMARY-COLOR;
+      }
+    }
+
+    svg {
+      fill: $PRIMARY-COLOR;
+      fill-opacity: 0;
+      stroke-opacity: 1;
+      stroke: $GRAY-15;
+      height: 20px;
+      transition: stroke ease-in-out 0.2s, fill-opacity ease-in-out 0.2s,
+        stroke-opacity ease-in-out 0.2s;
+    }
+  }
+
+  .meta {
+    display: flex;
+    font-size: 11px;
+    color: $GRAY-15;
+
+    a {
+      color: $PRIMARY-COLOR;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
