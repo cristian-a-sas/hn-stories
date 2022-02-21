@@ -1,0 +1,12 @@
+$WHITE: #ffffff;
+$BLACK: #000000;
+$PRIMARY-COLOR: #ff6600;
+$GRAY-10: #444;
+$GRAY-15: #888;
+$GRAY-60: #efefef;
+$GRAY-90: #f6f6f6;
+
+// Export so we can use it in JS as well
+:export {
+  primaryColor: $PRIMARY-COLOR;
+}
