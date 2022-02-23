@@ -12,14 +12,23 @@ const intervals: interval[] = [
   { label: "second", seconds: 1 },
 ];
 
-function timeSince(time: number): string {
-  const seconds = Math.floor(Date.now() / 1000 - time);
-  const interval = intervals.find((i) => i.seconds < seconds);
-  const count = Math.floor(seconds / interval.seconds);
+/**
+ * Helper function that returns a user friendly string describing the time that has passed,
+ * either based on the current time, or a custom time reference.
+ * @param time
+ * @param timeReference
+ * @returns string
+ */
+function timeSince(time: number, timeReference?: number): string {
+  if (typeof time === "number") {
+    const seconds = ((timeReference || Date.now()) - time) / 1000;
+    const interval = intervals.find((i) => i.seconds <= seconds);
+    const count = Math.floor(seconds / interval.seconds);
 
-  return `${count} ${interval.label}${count !== 1 ? "s" : ""} ago`;
+    return `${count} ${interval.label}${count !== 1 ? "s" : ""} ago`;
+  }
+
+  return null;
 }
 
 export default timeSince;
-
-// TODO: Add unit tests for this helper

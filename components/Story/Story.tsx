@@ -15,6 +15,7 @@ export default function Story({
 
   const urlEl = url && new URL(url);
   const domain = urlEl?.hostname;
+  const timeInMS = time * 1000;
 
   function handleUpvoteClick() {
     toggleUpvote();
@@ -58,7 +59,7 @@ export default function Story({
             </h2>
           </div>
           <div className={styles.meta}>
-            <p aria-label={`Posted by ${userId}, ${timeSince(time)}`}>
+            <p aria-label={`Posted by ${userId}, ${timeSince(timeInMS)}`}>
               By{" "}
               <a
                 href={`https://news.ycombinator.com/user?id=${userId}`}
@@ -70,7 +71,7 @@ export default function Story({
               ({userKarma}){" "}
               {
                 timeSince(
-                  time
+                  timeInMS
                 ) /*TODO: Add a title attribute so we can show exact date and time on hover */
               }
             </p>
