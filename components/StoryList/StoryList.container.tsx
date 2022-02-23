@@ -8,10 +8,7 @@ import {
 import { ref, onValue } from "firebase/database";
 import db from "../../utils/database";
 import { useEffect, useState, useCallback } from "react";
-
-function spliceRandomValueFromArray(array: Array<number>): number {
-  return array.splice(Math.floor(Math.random() * array.length), 1)[0];
-}
+import spliceRandomValueFromArray from "../../utils/spliceRandomValueFromArray";
 
 export default function StoryListContainer() {
   const [storiesData, setStoriesData] = useState<CleanedStoryDataType[]>();
