@@ -67,39 +67,36 @@
       font-size: 10px;
       font-weight: 400;
       color: $GRAY-15;
-      margin-left: 5px;
-      word-break: break-all; // Quick, bad fix for crammed design
-
-      @media (min-width: $screen-xs-min) {
-        word-break: normal;
-      }
     }
   }
 
   .score {
-    background-color: $GRAY-90;
-    font-weight: 600;
-    font-size: 14px;
-    color: $GRAY-10;
-    display: flex;
-    flex-direction: column;
-    flex-shrink: 0;
-    padding: 16px 10px;
-    width: 40px;
-    align-items: center;
+    display: none;
 
     @media (min-width: $screen-xs-min) {
+      background-color: $GRAY-90;
+      font-weight: 600;
+      font-size: 14px;
+      color: $GRAY-10;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      padding: 16px 10px;
       width: 60px;
-    }
+      align-items: center;
 
-    @media (hover: hover) {
-      &:hover {
-        svg {
-          stroke: $PRIMARY-COLOR;
+      @media (hover: hover) {
+        &:hover {
+          svg {
+            stroke: $PRIMARY-COLOR;
+          }
         }
       }
     }
+  }
 
+  .score,
+  .scoreMobile {
     &.upvoted {
       color: $PRIMARY-COLOR;
 
@@ -120,10 +117,45 @@
     }
   }
 
+  .scoreMobile {
+    background-color: $GRAY-90;
+    font-weight: 600;
+    font-size: 12px;
+    color: $GRAY-10;
+    display: flex;
+    flex-shrink: 0;
+    min-width: 50px;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin-right: 10px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+
+    @media (min-width: $screen-xs-min) {
+      display: none;
+    }
+
+    svg {
+      height: 16px;
+      margin-left: 5px;
+
+      path {
+        stroke-width: 60px;
+      }
+    }
+  }
+
   .meta {
     display: flex;
     font-size: 11px;
     color: $GRAY-15;
+    align-items: center;
+    margin-top: 10px;
+
+    @media (min-width: $screen-xs-min) {
+      margin-top: 0;
+    }
 
     a {
       color: $PRIMARY-COLOR;

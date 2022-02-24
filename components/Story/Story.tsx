@@ -23,7 +23,9 @@ export default function Story({
 
   return (
     <div className={styles.container}>
+      {/** The Upvote button should be refactored into its own component */}
       <button
+        //aria-hidden={/* Add rule to hide on desktop */}
         aria-label={`${upvoted ? "Un-upvote" : "Upvote"} story`}
         aria-pressed={upvoted}
         onClick={handleUpvoteClick}
@@ -53,12 +55,27 @@ export default function Story({
                   rel="noreferrer"
                   className={styles.domain}
                 >
+                  {" "}
                   ({domain})
                 </a>
               )}
             </h2>
           </div>
           <div className={styles.meta}>
+            <button
+              //aria-hidden={/* Add rule to hide on mobile */}
+              aria-label={`${upvoted ? "Un-upvote" : "Upvote"} story`}
+              aria-pressed={upvoted}
+              onClick={handleUpvoteClick}
+              className={`${styles.scoreMobile} ${
+                upvoted ? styles.upvoted : ""
+              }`}
+            >
+              {upvoted ? score + 1 : score}
+              <div>
+                <Upvote />
+              </div>
+            </button>
             <p aria-label={`Posted by ${userId}, ${timeSince(timeInMS)}`}>
               By{" "}
               <a
